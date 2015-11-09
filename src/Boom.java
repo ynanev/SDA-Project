@@ -50,7 +50,7 @@ public class Boom
 		 
 		 System.out.println("To Start 'S' To Pause 'P' To Resume 'R' To Stop 'ST");
 		 input=in.nextLine();
-		 state = gameState();
+		 state = gameState();//determine command to be execute
 	    if(state)
 	    {
 	    	setCracter();

@@ -11,7 +11,7 @@ package Observer;
  */
 public interface  Magazine 
 {
-	
+	  
 	
 	public default int getBullets() 
 	{

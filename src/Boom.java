@@ -43,6 +43,7 @@ public class Boom
 	  static Weapon gun;
 	  static Magazine currnetMagazine;
 	  static MagazineObserver magazineObserver =new MagazineObserver();
+	  static Weapon magazine;
 
 	 public static void main (String [] args)
 	{		
@@ -56,13 +57,16 @@ public class Boom
 	    	setCracter();
 	    }
 	    getKit();
+	    System.out.println("***********************************************");
 	    decorateGun();
+	    shoot();
 	    
 	   
 	}
 	 public static void getKit()
 	 {
 		 System.out.println("Get your Kit \n Your Kit contains:\n");
+		 System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
 		 kit.accept(new AccsessoriesKitCheckVisitor());
 		
 		
@@ -85,7 +89,7 @@ public class Boom
 	 }
 	 public static void decorateGun()
 	 {   CommponentsFactory componets=new CommponentsFactory();
-	     Weapon magazine = null;
+	    
 	     Weapon scope =null;
          Weapon trigger = null;
          Weapon decoratedWeapon;
@@ -108,62 +112,12 @@ public class Boom
 		     if(input.equalsIgnoreCase("Magazine1") ||input.equalsIgnoreCase("Magazine2") )
 		     {  
 		    	if(input.equalsIgnoreCase("Magazine1"))
-		    	{
 		    	magazine=new Magazine1(new BaseWeapon());
-		    	currnetMagazine=(Magazine1) magazine;
-		    	currnetMagazine.setMagazineObserver(magazineObserver);
-		    	  String ans="Y";
-		          
-		        
-		          
-		          while(ans.equalsIgnoreCase("Y"))
-		          {
-		                Scanner input = new Scanner(System.in);
-		                System.out.println();
-		                System.out.println("Shoot ?  1)Y  or 2)N");
-		                ans = input.nextLine();
-		          
-		               if(ans.equalsIgnoreCase("Y"))
-		                {   
-		                    magazineObserver.triggered();
-		                }
-		             
-		          }
-		          
-		          
-		          System.out.println("Shooting has stopped");
-		          
-		    	System.out.println(currnetMagazine.getBullets());
-		    	}
 		    	else
-		    	{
 		    	magazine=new Magazine2(new BaseWeapon());
-		    	currnetMagazine=(Magazine1) magazine;
-		    	currnetMagazine.setMagazineObserver(magazineObserver);
-		    	  String ans="Y";
-		          
-		        
-		          
-		          while(ans.equalsIgnoreCase("Y"))
-		          {
-		                Scanner input = new Scanner(System.in);
-		                System.out.println();
-		                System.out.println("Shoot ?  1)Y  or 2)N");
-		                ans = input.nextLine();
-		          
-		               if(ans.equalsIgnoreCase("Y"))
-		                {   
-		                    magazineObserver.triggered();
-		                }
-		             
-		          }
-		          
-		          
-		          System.out.println("Shooting has stopped");
-		          
-		    	System.out.println(currnetMagazine.getBullets());
+		    	
 		    	gunParts=true;
-		    	}
+		    	
 		     }
 		 }
 		 gunParts=false;
@@ -205,10 +159,34 @@ public class Boom
 		 
 		 
 	 }
+	
 	 public static void shoot()
 	 {
 		System.out.println("Time to learne to shoot");
-		
+		currnetMagazine=(Magazine1) magazine;
+    	currnetMagazine.setMagazineObserver(magazineObserver);
+    	  String ans="Y";
+          
+        
+          
+          while(ans.equalsIgnoreCase("Y"))
+          {
+                Scanner input = new Scanner(System.in);
+                System.out.println();
+                System.out.println("Shoot ?  1)Y  or 2)N");
+                ans = input.nextLine();
+          
+               if(ans.equalsIgnoreCase("Y"))
+                {   
+                    magazineObserver.triggered();
+                }
+             
+          }
+          
+          
+          System.out.println("Shooting has stopped");
+          
+    	System.out.println(currnetMagazine.getBullets());
 		
 	 }
 	 
@@ -218,7 +196,7 @@ public class Boom
 		 while(!state)
 		 {
 		 System.out.println("Type the name of the charackter to select");
-		 System.out.println("Superman,Hornet,Hercules,Bataman");
+		 System.out.println("Superman,Hornet,Hercules,Batman");
 		 
 		 input=in.nextLine();
 		 state=gameState();

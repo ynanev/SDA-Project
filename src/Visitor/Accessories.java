@@ -8,4 +8,5 @@ public interface Accessories
 	//void ModifyAccessoriesKit(Weapon w) ;
 	//void setGunInKit(Weapon w);
 	//Weapon getGunInKit();
+	
 }

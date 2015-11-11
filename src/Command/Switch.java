@@ -4,6 +4,7 @@ import java.awt.List;
 import java.util.ArrayList;
 
 import Interceptor.log;
+import Interceptor.logger;
 
 public class Switch {
 
@@ -12,9 +13,9 @@ public class Switch {
 	   public Switch() {
 	   }
 	 
-	   public void eXecute(Command command)
+	   public void buttonPush(Command command)
 	   {
-		           log log=new log(command);
+		   logger log = new log(command);
 		           log.LogToFile();
 	              // command.execute();        
 	   }

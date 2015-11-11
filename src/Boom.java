@@ -243,14 +243,14 @@ public class Boom
 		   if(input.equalsIgnoreCase("s"))
 		   {
 			   gamestate=new StartGameComand(game);
-			   s.eXecute(gamestate);
+			   s.buttonPush(gamestate);
 			   state=true;
 			   return true;
 		   }
 		   else if(input.equalsIgnoreCase("p"))
 		   {
 			   gamestate=new PauseGameCommand(game);
-			   s.eXecute(gamestate);
+			   s.buttonPush(gamestate);
 			   state=false;
 			   gamePoaused();	   
 			   return false;
@@ -259,7 +259,7 @@ public class Boom
 		   {
 			   
 			   gamestate=new ResumeGameCommand(game);
-			   s.eXecute(gamestate);
+			   s.buttonPush(gamestate);
 			   state=true;
 			   gamePoaused();
 			   return true;
@@ -268,7 +268,7 @@ public class Boom
 		   {
 			   gamestate=new StopGameCommand(game);
 			   state=false;
-			   s.eXecute(gamestate);		   
+			   s.buttonPush(gamestate);		   
 			   return false;
 		   }
 		   else

@@ -112,9 +112,15 @@ public class Boom
 		     if(input.equalsIgnoreCase("Magazine1") ||input.equalsIgnoreCase("Magazine2") )
 		     {  
 		    	if(input.equalsIgnoreCase("Magazine1"))
+		    	{
 		    	magazine=new Magazine1(new BaseWeapon());
+		    	currnetMagazine=(Magazine1) magazine;
+		    	}
 		    	else
+		    	{
 		    	magazine=new Magazine2(new BaseWeapon());
+		    	currnetMagazine=(Magazine2) magazine;
+		    	}
 		    	
 		    	gunParts=true;
 		    	
@@ -163,7 +169,7 @@ public class Boom
 	 public static void shoot()
 	 {
 		System.out.println("Time to learne to shoot");
-		currnetMagazine=(Magazine1) magazine;
+		
     	currnetMagazine.setMagazineObserver(magazineObserver);
     	  String ans="Y";
           

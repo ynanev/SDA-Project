@@ -10,7 +10,8 @@ public class Switch {
 
 	// private ArrayList<Command> history = new ArrayList<Command>();
 	 
-	   public Switch() {
+	   public Switch() 
+	   {
 	   }
 	 
 	   public void buttonPushed(Command command)

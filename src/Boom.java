@@ -295,10 +295,7 @@ public class Boom
 	 }
 	 public static boolean gameState()
 	 {
-		
-		  
-		    
-		 
+
 		   if(input.equalsIgnoreCase("s"))
 		   {
 			   gamestate=new StartGameComand(game);

@@ -17,9 +17,10 @@ public class Batman extends  Character
 {
 	private Accessories kit;
 	
-     public Accessories getKit() {
+     public Accessories getKit()
+     {
 		return kit;
-	}
+	 }
 
 	@Override
      public void createCharacter()
@@ -33,7 +34,8 @@ public class Batman extends  Character
          super(c);
  	}    
 	@Override
-	public void applyColor() {
+	public void applyColor() 
+	{
 		System.out.print("Batman`s color ");
         color.applyColor();
 		

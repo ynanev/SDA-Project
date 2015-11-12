@@ -16,13 +16,15 @@ public class GreenHornet extends  Character
 {
 	private Accessories kit;
 	
-     public Accessories getKit() {
+     public Accessories getKit()
+     {
 		return kit;
 	}
 
-	public GreenHornet(Color c) {
+	public GreenHornet(Color c) 
+	{
 		super(c);
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	@Override
@@ -33,8 +35,9 @@ public class GreenHornet extends  Character
      }
 
 	@Override
-	public void applyColor() {
-		// TODO Auto-generated method stub
+	public void applyColor()
+	{
+		
 		
 	}
 

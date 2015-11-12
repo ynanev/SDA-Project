@@ -13,10 +13,9 @@ public class Switch {
 	   public Switch() {
 	   }
 	 
-	   public void buttonPush(Command command)
+	   public void buttonPushed(Command command)
 	   {
-		   logger log = new log(command);
-		           log.LogToFile();
-	              // command.execute();        
+		   
+	               command.execute();        
 	   }
 	}

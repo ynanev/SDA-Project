@@ -1,10 +1,11 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import Bridge.BlueColor;
 import Bridge.RedColor;
 import Command.Command;
 import Command.Game;
-import Command.PauseGameCommand;//
+import Command.PauseGameCommand;
 import Command.ResumeGameCommand;
 import Command.StartGameComand;
 import Command.StopGameCommand;
@@ -21,6 +22,7 @@ import Decorator.Weapon;
 import Decorator.WeaponAccessoryDecorator;
 import Factory.Character;
 import Factory.CharacterFactory;
+import Interceptor.log;
 import Observer.Magazine;
 import Observer.MagazineObserver;
 import Observer.concreteMagazine;
@@ -44,6 +46,7 @@ public class Boom
 	  static Magazine currnetMagazine;
 	  static MagazineObserver magazineObserver =new MagazineObserver();
 	  static Weapon magazine;
+	  static log log;
 
 	 public static void main (String [] args)
 	{		
@@ -60,9 +63,64 @@ public class Boom
 	    System.out.println("***********************************************");
 	    decorateGun();
 	    shoot();
-	    
+	    createEnemies();	    
 	   
 	}
+	 
+	 public static void createEnemies()
+	 {
+		 System.out.println("Input a number of enemies to be created");
+		 int num= (Integer) in.nextInt();
+		 gameState();
+		 Character enemy;
+		 ArrayList<Character> enemyList=new ArrayList<Character>();
+		 CharacterFactory characterFactory = new CharacterFactory();
+		 Long times[]= new Long[4];
+		 Long timesVisiting[]= new Long[4];
+		 Integer iterations[]= new Integer[4];
+		 
+		 int j=0;
+		while(j<4)
+		{
+			long startTime = System.nanoTime();
+		 for(int i=0;i<num;i++)
+		 {
+	
+			 enemy= characterFactory.getCharacter("superman",new RedColor());
+			 enemy.createCharacter();
+			 enemyList.add(enemy);
+			 enemy.setKit(kit);
+    
+		 }
+		 
+		 long time = System.nanoTime() - startTime;
+		 times[j]=time;
+		 long startTimeVisit = System.nanoTime();
+		 for(int i =0;i<num;i++)
+		 {
+			 kit.accept(new AccsessoriesKitCheckVisitor());
+		 }
+		 long stoptTimeVisit = System.nanoTime();
+		 timesVisiting[j]=stoptTimeVisit;
+		 iterations[j]=num;
+		
+		 num=num*10;
+		 j++;
+		
+		}
+		for(int k=0;k<times.length;k++)
+		{
+			 
+			 System.out.println("My thread " + iterations[k] + "Creating characters execution time: " + times[k] + " ns");
+		}
+		for(int k=0;k<times.length;k++)
+		{
+			 
+			 System.out.println("My thread " + iterations[k] + "Visiting kits execution time: " + timesVisiting[k] + " ns");
+		}
+		
+		
+	 }
 	 public static void getKit()
 	 {
 		 System.out.println("Get your Kit \n Your Kit contains:\n");
@@ -243,14 +301,18 @@ public class Boom
 		   if(input.equalsIgnoreCase("s"))
 		   {
 			   gamestate=new StartGameComand(game);
-			   s.buttonPush(gamestate);
+			   log=new log(gamestate);
+			   log.LogToFile();
+			   s.buttonPushed(gamestate);
 			   state=true;
 			   return true;
 		   }
 		   else if(input.equalsIgnoreCase("p"))
 		   {
 			   gamestate=new PauseGameCommand(game);
-			   s.buttonPush(gamestate);
+			   log=new log(gamestate);
+			   log.LogToFile();
+			   s.buttonPushed(gamestate);
 			   state=false;
 			   gamePoaused();	   
 			   return false;
@@ -259,7 +321,9 @@ public class Boom
 		   {
 			   
 			   gamestate=new ResumeGameCommand(game);
-			   s.buttonPush(gamestate);
+			   log=new log(gamestate);
+			   log.LogToFile();
+			   s.buttonPushed(gamestate);
 			   state=true;
 			   gamePoaused();
 			   return true;
@@ -267,8 +331,10 @@ public class Boom
 		   else if(input.equalsIgnoreCase("st"))
 		   {
 			   gamestate=new StopGameCommand(game);
+			   log=new log(gamestate);
+			   log.LogToFile();
 			   state=false;
-			   s.buttonPush(gamestate);		   
+			   s.buttonPushed(gamestate);		   
 			   return false;
 		   }
 		   else

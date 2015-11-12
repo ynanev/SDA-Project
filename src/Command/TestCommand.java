@@ -13,10 +13,10 @@ public class TestCommand
 		
 		Switch s = new Switch();
 		
-		s.buttonPush(startGame);
-		s.buttonPush(stopGame);
-		s.buttonPush(pauseGame);
-		s.buttonPush(resumeGame);
+		s.buttonPushed(startGame);
+		s.buttonPushed(stopGame);
+		s.buttonPushed(pauseGame);
+		s.buttonPushed(resumeGame);
 	}
 
 }

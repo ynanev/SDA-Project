@@ -42,8 +42,9 @@ public class GreenHornet extends  Character
 	}
 
 	@Override
-	public void setKit(Accessories kit) {
-		// TODO Auto-generated method stub
+	public void setKit(Accessories kit) 
+	{
+		
 		
 	}
 

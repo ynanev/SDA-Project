@@ -38,7 +38,6 @@ public class GreenHornet extends  Character
 	public void applyColor()
 	{
 		
-		
 	}
 
 	@Override

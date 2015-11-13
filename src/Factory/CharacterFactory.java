@@ -7,7 +7,6 @@ package Factory;
 
 import Bridge.Color;
 
-
 public class CharacterFactory
 {
     public Character getCharacter(String characterType,Color color)

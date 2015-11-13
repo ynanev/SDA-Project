@@ -7,10 +7,7 @@ package Factory;
 
 import Bridge.Color;
 
-/**
- *
- * @author Parfait
- */
+
 public class CharacterFactory
 {
     public Character getCharacter(String characterType,Color color)

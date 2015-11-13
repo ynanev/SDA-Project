@@ -9,8 +9,7 @@ public class log implements logger
        public log (Command command)
        {
     	   this.command=command;
-       }
-       
+       }    
        @Override
        public void LogToFile()
        {

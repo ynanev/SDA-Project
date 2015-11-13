@@ -127,7 +127,6 @@ public class Boom
 		 System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
 		 kit.accept(new AccsessoriesKitCheckVisitor());
 		
-		
 		 while(!input.equalsIgnoreCase("g"))
 		 {    
 			 System.out.println("To get Kit 'G");

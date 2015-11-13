@@ -7,10 +7,7 @@ public class Magazine1 extends WeaponAccessoryDecorator implements Magazine
 {
 	private static int bullets=20;
 	private MagazineObserver magazineObserver;
-	 
-	
-	 
-	
+
 	public MagazineObserver getMagazineObserver() 
 	{
 		return magazineObserver;

@@ -119,7 +119,7 @@ public class Boom
 			 System.out.println("My thread " + iterations[k] + "Visiting kits execution time: " + timesVisiting[k] + " ns");
 		}
 		
-		
+
 	 }
 	 public static void getKit()
 	 {

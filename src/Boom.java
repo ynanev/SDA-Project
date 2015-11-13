@@ -189,7 +189,7 @@ public class Boom
 			 System.out.println("Select Scope: `Scope1`,`Scope2`");
 			 input=in.nextLine();
 			 gameState();
-			 //scope=componets.createSingleAccessoar(input);
+			
 		     if(input.equalsIgnoreCase("Scope1") ||input.equalsIgnoreCase("Scope2") )
 		     {  
 		    	 if(input.equalsIgnoreCase("Scope1")) 

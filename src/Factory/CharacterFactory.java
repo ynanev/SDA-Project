@@ -18,7 +18,7 @@ public class CharacterFactory
         
         if(characterType.equalsIgnoreCase("Superman"))
           {
-            return new Superman(color);
+             return new Superman(color);
           }
         
         else if(characterType.equalsIgnoreCase("Batman"))

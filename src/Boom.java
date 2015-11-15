@@ -292,7 +292,7 @@ public class Boom
 		 state=gameState();
 		 
 		 }
-		 color=input;
+		  color=input;
 		 
 		 CharacterFactory characterFactory = new CharacterFactory();
 		 if(color.equalsIgnoreCase("Red"))

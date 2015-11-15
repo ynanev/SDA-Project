@@ -23,7 +23,7 @@ public class CharacterFactory
         
         else if(characterType.equalsIgnoreCase("Batman"))
           {
-            return new Batman(color);
+              return new Batman(color);
           }
         
         else if(characterType.equalsIgnoreCase("Hornet"))

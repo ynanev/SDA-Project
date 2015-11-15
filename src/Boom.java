@@ -172,6 +172,12 @@ public class Boom
 		 {    
 			 System.out.println("Select Magazine: `Magazine1`,`Magazine2`");
 			 input=in.nextLine();
+
+			 while(!((input.equalsIgnoreCase("Magazine1")) ||(input.equalsIgnoreCase("Magazine2"))))
+			 {
+				 System.out.println("Please try again : Select Magazine: `Magazine1`,`Magazine2`");
+				 input=in.nextLine();
+			 }
 			 gameState();
 			 //magazine=componets.createSingleAccessoar(input);
 			 
@@ -197,6 +203,12 @@ public class Boom
 		 {    
 			 System.out.println("Select Scope: `Scope1`,`Scope2`");
 			 input=in.nextLine();
+
+			 while(!((input.equalsIgnoreCase("Scope1")) ||(input.equalsIgnoreCase("Scope2"))))
+			 {
+				 System.out.println("Please try again : Select Scope: `Scope1`,`Scope2`");
+				 input=in.nextLine();
+			 }
 			 gameState();
 			 //scope=componets.createSingleAccessoar(input);
 		     if(input.equalsIgnoreCase("Scope1") ||input.equalsIgnoreCase("Scope2") )
@@ -212,8 +224,13 @@ public class Boom
 		 gunParts=false;
 		 while(!gunParts)
 		 {    
-			 System.out.println("Select Scope: `Trigger1`,`Trigger2`");
+			 System.out.println("Select Trigger : `Trigger1`,`Trigger2`");
 			 input=in.nextLine();
+			 while(!((input.equalsIgnoreCase("Trigger1")) ||(input.equalsIgnoreCase("Trigger2"))))
+			 {
+				 System.out.println("Please try again : Select Trigger : `Trigger1`,`Trigger2`");
+				 input=in.nextLine();
+			 }
 			 gameState();
 			// trigger=componets.createSingleAccessoar(input);
 		     if(input.equalsIgnoreCase("Trigger1") ||input.equalsIgnoreCase("Trigger2") )

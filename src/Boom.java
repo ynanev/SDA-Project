@@ -24,7 +24,7 @@ import Factory.Character;
 import Factory.CharacterFactory;
 import Interceptor.log;
 import Observer.Magazine;
-import Observer.MagazineObserver;
+import Observer.MagazineObservable;
 import Observer.concreteMagazine;
 import Visitor.Accessories;
 import Visitor.AccessoriesKit;
@@ -44,7 +44,7 @@ public class Boom
 	  static String input;
 	  static Weapon gun;
 	  static Magazine currnetMagazine;
-	  static MagazineObserver magazineObserver =new MagazineObserver();
+	  static MagazineObservable magazineObserver =new MagazineObservable();
 	  static Weapon magazine;
 	  static log log;
 
@@ -60,6 +60,7 @@ public class Boom
 	    	setCracter();
 	    }
 	    getKit();
+	    
 	    System.out.println("***********************************************");
 	    decorateGun();
 	    shoot();
@@ -95,12 +96,13 @@ public class Boom
 		 
 		 long time = System.nanoTime() - startTime;
 		 times[j]=time;
-		 long startTimeVisit = System.nanoTime();
+		 long startTimeVisit = System.nanoTime();//start time
 		 for(int i =0;i<num;i++)
 		 {
 			 kit.accept(new AccsessoriesKitCheckVisitor());
 		 }
-		 long stoptTimeVisit = System.nanoTime();
+		 long stoptTimeVisit = System.nanoTime()- startTimeVisit ;//end time
+		
 		 timesVisiting[j]=stoptTimeVisit;
 		 iterations[j]=num;
 		
@@ -241,7 +243,7 @@ public class Boom
           
                if(ans.equalsIgnoreCase("Y"))
                 {   
-                    magazineObserver.triggered();
+                    magazineObserver.notifyAllObservers();
                 }
              
           }

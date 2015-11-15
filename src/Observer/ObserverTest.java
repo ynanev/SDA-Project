@@ -20,7 +20,7 @@ public class ObserverTest
     public static void main(String[] args)
     {
         // TODO code application logic here
-        MagazineObserver magazineObserver =new MagazineObserver();
+        MagazineObservable magazineObserver =new MagazineObservable();
         String ans="Y";
         
         new concreteMagazine(magazineObserver);
@@ -34,7 +34,7 @@ public class ObserverTest
         
              if(ans.equalsIgnoreCase("Y"))
               {   
-                  magazineObserver.triggered();
+          //        magazineObserver.triggered();
               }
            
         }

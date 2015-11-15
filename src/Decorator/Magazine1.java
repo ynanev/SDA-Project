@@ -1,19 +1,19 @@
 package Decorator;
 
 import Observer.Magazine;
-import Observer.MagazineObserver;
+import Observer.MagazineObservable;
 
 public class Magazine1 extends WeaponAccessoryDecorator implements Magazine
 {
 	private static int bullets=20;
-	private MagazineObserver magazineObserver;
+	private MagazineObservable magazineObserver;
 
-	public MagazineObserver getMagazineObserver() 
+	public MagazineObservable getMagazineObserver() 
 	{
 		return magazineObserver;
 	}
 	@Override
-	public void setMagazineObserver(MagazineObserver mo) 
+	public void setMagazineObserver(MagazineObservable mo) 
 	{
 		this.magazineObserver = mo;
         this.magazineObserver.attach(this);

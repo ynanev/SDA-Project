@@ -25,7 +25,7 @@ public interface  Magazine
    public default void reloadMagazine() 
     {  
     }
-   public default void setMagazineObserver(MagazineObserver mo)
+   public default void setMagazineObserver(MagazineObservable mo)
    {
 	   
    }

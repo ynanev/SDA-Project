@@ -14,8 +14,8 @@ public class concreteMagazine implements Magazine
 {
 
     private int bulletsCount = 30;
-	private MagazineObserver gun;
-    public concreteMagazine(MagazineObserver gun) 
+	private MagazineObservable gun;
+    public concreteMagazine(MagazineObservable gun) 
     {
         this.gun = gun;
         this.gun.attach(this);

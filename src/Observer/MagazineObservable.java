@@ -12,16 +12,14 @@ import java.util.List;
  *
  * @author Parfait
  */
-public class MagazineObserver 
+public class MagazineObservable 
 {
+	
+	////////////observable
     private List<Magazine> magazines = new ArrayList<Magazine>();
 
     
-    public void triggered()
-    {
-      notifyAllObservers(); 
-    }
-    
+   
     public void attach(Magazine magazine)
     {
       magazines.add(magazine);		

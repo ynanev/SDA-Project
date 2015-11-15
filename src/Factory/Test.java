@@ -28,7 +28,7 @@ public class Test
           secondCharacter.createCharacter();
           
           //get an object of GreenHornet and call its createCharacter method
-          Character thirdCharacter =characterFactory.getCharacter("GreenHornet",new RedColor());
+          Character thirdCharacter =characterFactory.getCharacter("Hornet",new RedColor());
           thirdCharacter.createCharacter();
           
            //get an object of Hercules and call its createCharacter method

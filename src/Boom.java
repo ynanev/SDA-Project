@@ -54,6 +54,12 @@ public class Boom
 		 
 		 System.out.println("To Start 'S' To Pause 'P' To Resume 'R' To Stop 'ST");
 		 input=in.nextLine();
+		while(!((input.equalsIgnoreCase("S")) || (input.equalsIgnoreCase("P")) || (input.equalsIgnoreCase("R")) || (input.equalsIgnoreCase("ST"))))
+		{
+			System.out.println("Invalid input");
+			System.out.println("Please try again : To Start 'S' To Pause 'P' To Resume 'R' To Stop 'ST");
+			input=in.nextLine();
+		}
 		 state = gameState();//determine command to be execute
 	    if(state)
 	    {
@@ -70,62 +76,65 @@ public class Boom
 	 public static void createEnemies()
 	 {
 		 System.out.println("Input a number of enemies to be created");
-		 int num= (Integer) in.nextInt();
-		 gameState();
-		 Character enemy;
-		 ArrayList<Character> enemyList=new ArrayList<Character>();
-		 CharacterFactory characterFactory = new CharacterFactory();
-		 Long times[]= new Long[4];
-		 Long timesVisiting[]= new Long[4];
-		 Integer iterations[]= new Integer[4];
-		 
-		 int j=0;
-		while(j<4)
-		{
-			long startTime = System.nanoTime();
-		 for(int i=0;i<num;i++)
-		 {
-	
-			 enemy= characterFactory.getCharacter("superman",new RedColor());
-			 enemy.createCharacter();
-			 enemyList.add(enemy);
-			 enemy.setKit(kit);
-    
-		 }
-		 
-		 long time = System.nanoTime() - startTime;
-		 times[j]=time;
-		 long startTimeVisit = System.nanoTime();
-		 for(int i =0;i<num;i++)
-		 {
-			 kit.accept(new AccsessoriesKitCheckVisitor());
-		 }
-		 long stoptTimeVisit = System.nanoTime();
-		 timesVisiting[j]=stoptTimeVisit;
-		 iterations[j]=num;
-		
-		 num=num*10;
-		 j++;
-		
-		}
-		for(int k=0;k<times.length;k++)
-		{
-			 
-			 System.out.println("My thread " + iterations[k] + "Creating characters execution time: " + times[k] + " ns");
-		}
-		for(int k=0;k<times.length;k++)
-		{
-			 
-			 System.out.println("My thread " + iterations[k] + "Visiting kits execution time: " + timesVisiting[k] + " ns");
-		}
-		
+         try {
+			 int num = Integer.parseInt(in.nextLine());
 
+			 gameState();
+			 Character enemy;
+			 ArrayList<Character> enemyList = new ArrayList<Character>();
+			 CharacterFactory characterFactory = new CharacterFactory();
+			 Long times[] = new Long[4];
+			 Long timesVisiting[] = new Long[4];
+			 Integer iterations[] = new Integer[4];
+
+			 int j = 0;
+			 while (j < 4) {
+				 long startTime = System.nanoTime();
+				 for (int i = 0; i < num; i++) {
+
+					 enemy = characterFactory.getCharacter("superman", new RedColor());
+					 enemy.createCharacter();
+					 enemyList.add(enemy);
+					 enemy.setKit(kit);
+
+				 }
+
+				 long time = System.nanoTime() - startTime;
+				 times[j] = time;
+				 long startTimeVisit = System.nanoTime();
+				 for (int i = 0; i < num; i++) {
+					 kit.accept(new AccsessoriesKitCheckVisitor());
+				 }
+				 long stoptTimeVisit = System.nanoTime();
+				 timesVisiting[j] = stoptTimeVisit;
+				 iterations[j] = num;
+
+				 num = num * 10;
+				 j++;
+
+			 }
+			 for (int k = 0; k < times.length; k++) {
+
+				 System.out.println("My thread " + iterations[k] + "Creating characters execution time: " + times[k] + " ns");
+			 }
+			 for (int k = 0; k < times.length; k++) {
+
+				 System.out.println("My thread " + iterations[k] + "Visiting kits execution time: " + timesVisiting[k] + " ns");
+			 }
+		 }
+		 catch (NumberFormatException e)
+		 {
+			 System.out.println("Incorrect please try again");
+			 createEnemies();
+		 }
+		
 	 }
 	 public static void getKit()
 	 {
 		 System.out.println("Get your Kit \n Your Kit contains:\n");
 		 System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
 		 kit.accept(new AccsessoriesKitCheckVisitor());
+		
 		
 		 while(!input.equalsIgnoreCase("g"))
 		 {    
@@ -189,7 +198,7 @@ public class Boom
 			 System.out.println("Select Scope: `Scope1`,`Scope2`");
 			 input=in.nextLine();
 			 gameState();
-			
+			 //scope=componets.createSingleAccessoar(input);
 		     if(input.equalsIgnoreCase("Scope1") ||input.equalsIgnoreCase("Scope2") )
 		     {  
 		    	 if(input.equalsIgnoreCase("Scope1")) 
@@ -225,30 +234,35 @@ public class Boom
 	
 	 public static void shoot()
 	 {
-		System.out.println("Time to learne to shoot");
+		System.out.println("Time to learn to shoot");
 		
     	currnetMagazine.setMagazineObserver(magazineObserver);
     	  String ans="Y";
-          
-        
-          
-          while(ans.equalsIgnoreCase("Y"))
+          boolean stop1 = false;
+
+
+          while((ans.equalsIgnoreCase("Y") || ans.equalsIgnoreCase("N")) && stop1 ==false)
           {
                 Scanner input = new Scanner(System.in);
                 System.out.println();
                 System.out.println("Shoot ?  1)Y  or 2)N");
                 ans = input.nextLine();
-          
+
                if(ans.equalsIgnoreCase("Y"))
-                {   
+                {
                     magazineObserver.triggered();
                 }
-             
+			  else if(ans.equalsIgnoreCase("N"))
+			   {
+				   System.out.println("Shooting has stopped");
+				   stop1 =true;
+			   }
+			  else
+			   {
+				   System.out.println("Incorrect input please try again");
+				    ans="Y";
+			   }
           }
-          
-          
-          System.out.println("Shooting has stopped");
-          
     	System.out.println(currnetMagazine.getBullets());
 		
 	 }
@@ -258,10 +272,17 @@ public class Boom
 		 state=false;
 		 while(!state)
 		 {
-		 System.out.println("Type the name of the charackter to select");
+		 System.out.println("Type the name of the character to select");
 		 System.out.println("Superman,Hornet,Hercules,Batman");
 		 
 		 input=in.nextLine();
+			 while(!((input.equalsIgnoreCase("Superman")) || (input.equalsIgnoreCase("Hornet"))
+					 ||(input.equalsIgnoreCase("Hercules")) || (input.equalsIgnoreCase("Batman"))))
+			 {
+				 System.out.println("Please try again : Type the name of the character to select");
+				 System.out.println("Superman,Hornet,Hercules,Batman");
+				 input=in.nextLine();
+			 }
 		 state=gameState();
 		 }
 		 String color=null;
@@ -273,6 +294,12 @@ public class Boom
 		 System.out.println("Type Color to select");
 		 System.out.println("Red,Blue");
 		 input=in.nextLine();
+			 while(!(input.equalsIgnoreCase("Red") || input.equalsIgnoreCase("Blue")))
+			 {
+				 System.out.println("Please try again : Type Color to select");
+				 System.out.println("Red,Blue");
+				 input=in.nextLine();
+			 }
 		 state=gameState();
 		 
 		 }

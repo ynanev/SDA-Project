@@ -26,7 +26,7 @@ public class CharacterFactory
             return new Batman(color);
           }
         
-        else if(characterType.equalsIgnoreCase("GreenHornet"))
+        else if(characterType.equalsIgnoreCase("Hornet"))
           {
             return new GreenHornet(color);
           }

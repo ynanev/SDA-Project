@@ -34,7 +34,7 @@ public class ObserverTest
         
              if(ans.equalsIgnoreCase("Y"))
               {   
-                  magazineObserver.triggered();
+                  magazineObserver.notifyAllObservers();
               }
            
         }

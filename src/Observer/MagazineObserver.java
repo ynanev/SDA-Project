@@ -17,10 +17,10 @@ public class MagazineObserver
     private List<Magazine> magazines = new ArrayList<Magazine>();
 
     
-    public void triggered()
+  /*  public void triggered()
     {
       notifyAllObservers(); 
-    }
+    }*/
     
     public void attach(Magazine magazine)
     {

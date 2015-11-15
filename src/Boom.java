@@ -54,12 +54,6 @@ public class Boom
 		 
 		 System.out.println("To Start 'S' To Pause 'P' To Resume 'R' To Stop 'ST");
 		 input=in.nextLine();
-		while(!((input.equalsIgnoreCase("S")) || (input.equalsIgnoreCase("P")) || (input.equalsIgnoreCase("R")) || (input.equalsIgnoreCase("ST"))))
-		{
-			System.out.println("Invalid input");
-			System.out.println("Please try again : To Start 'S' To Pause 'P' To Resume 'R' To Stop 'ST");
-			input=in.nextLine();
-		}
 		 state = gameState();//determine command to be execute
 	    if(state)
 	    {
@@ -140,6 +134,8 @@ public class Boom
 		 {    
 			 System.out.println("To get Kit 'G");
 			 input=in.nextLine();
+
+
 			 gameState();
 		 }
 		
@@ -173,11 +169,7 @@ public class Boom
 			 System.out.println("Select Magazine: `Magazine1`,`Magazine2`");
 			 input=in.nextLine();
 
-			 while(!((input.equalsIgnoreCase("Magazine1")) ||(input.equalsIgnoreCase("Magazine2"))))
-			 {
-				 System.out.println("Please try again : Select Magazine: `Magazine1`,`Magazine2`");
-				 input=in.nextLine();
-			 }
+
 			 gameState();
 			 //magazine=componets.createSingleAccessoar(input);
 			 
@@ -204,11 +196,7 @@ public class Boom
 			 System.out.println("Select Scope: `Scope1`,`Scope2`");
 			 input=in.nextLine();
 
-			 while(!((input.equalsIgnoreCase("Scope1")) ||(input.equalsIgnoreCase("Scope2"))))
-			 {
-				 System.out.println("Please try again : Select Scope: `Scope1`,`Scope2`");
-				 input=in.nextLine();
-			 }
+
 			 gameState();
 			 //scope=componets.createSingleAccessoar(input);
 		     if(input.equalsIgnoreCase("Scope1") ||input.equalsIgnoreCase("Scope2") )
@@ -226,11 +214,7 @@ public class Boom
 		 {    
 			 System.out.println("Select Trigger : `Trigger1`,`Trigger2`");
 			 input=in.nextLine();
-			 while(!((input.equalsIgnoreCase("Trigger1")) ||(input.equalsIgnoreCase("Trigger2"))))
-			 {
-				 System.out.println("Please try again : Select Trigger : `Trigger1`,`Trigger2`");
-				 input=in.nextLine();
-			 }
+
 			 gameState();
 			// trigger=componets.createSingleAccessoar(input);
 		     if(input.equalsIgnoreCase("Trigger1") ||input.equalsIgnoreCase("Trigger2") )
@@ -267,7 +251,7 @@ public class Boom
 
                if(ans.equalsIgnoreCase("Y"))
                 {
-                    magazineObserver.triggered();
+                    magazineObserver.notifyAllObservers();
                 }
 			  else if(ans.equalsIgnoreCase("N"))
 			   {
@@ -293,13 +277,7 @@ public class Boom
 		 System.out.println("Superman,Hornet,Hercules,Batman");
 		 
 		 input=in.nextLine();
-			 while(!((input.equalsIgnoreCase("Superman")) || (input.equalsIgnoreCase("Hornet"))
-					 ||(input.equalsIgnoreCase("Hercules")) || (input.equalsIgnoreCase("Batman"))))
-			 {
-				 System.out.println("Please try again : Type the name of the character to select");
-				 System.out.println("Superman,Hornet,Hercules,Batman");
-				 input=in.nextLine();
-			 }
+
 		 state=gameState();
 		 }
 		 String color=null;
@@ -311,12 +289,6 @@ public class Boom
 		 System.out.println("Type Color to select");
 		 System.out.println("Red,Blue");
 		 input=in.nextLine();
-			 while(!(input.equalsIgnoreCase("Red") || input.equalsIgnoreCase("Blue")))
-			 {
-				 System.out.println("Please try again : Type Color to select");
-				 System.out.println("Red,Blue");
-				 input=in.nextLine();
-			 }
 		 state=gameState();
 		 
 		 }

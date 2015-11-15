@@ -18,15 +18,15 @@ public class CharacterFactory
         
         if(characterType.equalsIgnoreCase("Superman"))
           {
-            return new Superman(color);
+             return new Superman(color);
           }
         
         else if(characterType.equalsIgnoreCase("Batman"))
           {
-            return new Batman(color);
+              return new Batman(color);
           }
         
-        else if(characterType.equalsIgnoreCase("GreenHornet"))
+        else if(characterType.equalsIgnoreCase("Hornet"))
           {
             return new GreenHornet(color);
           }
